@@ -1,4 +1,5 @@
 # ParaBankAutomation
 This repo deals with automation scenario of para bank
 
-this will be maven project
+this will be maven project for parabank automation
+
