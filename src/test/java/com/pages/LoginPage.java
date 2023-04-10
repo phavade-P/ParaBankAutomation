@@ -59,56 +59,88 @@ public class LoginPage {
     }
 
     public void clickLinkSolutions(){
+        Reporter.log("Solution link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkSolutions)).click();
+        Reporter.log("Solution link is clicked");
+
     }
     public void clickLinkAboutUs(){
+        Reporter.log("About Us link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkAboutUs)).click();
+        Reporter.log("AboutUs link is clicked");
     }
-    public void clickLinkServices(){
+    public void clickLinkServices()
+    {
+        Reporter.log("Services link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkServices)).click();
+        Reporter.log("Services link is clicked");
     }
-    public void clickLinkProducts(){
+    public void clickLinkProducts()
+    {
+        Reporter.log("Products link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkProducts)).click();
+        Reporter.log("Products link is clicked");
     }
     public void clickLinkLocations(){
+        Reporter.log("Locations link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkLocations)).click();
+        Reporter.log("Locations link is clicked");
     }
     public void clickLinkAdminPage(){
+        Reporter.log("Admin Page link will be clicked");
         wait.until(ExpectedConditions.elementToBeClickable(lnkAdminPage)).click();
+        Reporter.log("AdminPage link is clicked");
     }
     public void validatetextCustomerLogin(String customerlogin){
+        Reporter.log(" going to Custommer Login text");
         Assert.assertEquals(lblCustomerLogin.getText(),customerlogin);
         Reporter.log("The Text of lebel:" + lblCustomerLogin.getText());
     }
     public void enterUsername(String Username){
+        Reporter.log("Uername Textbox will be clicked");
         WebElement element= wait.until(ExpectedConditions.elementToBeClickable(txtUsername));
         element.sendKeys(Username);
+
     }
     public void enterPassword(String Password){
+        Reporter.log("Password Textbox will be clicked");
         WebElement element= wait.until(ExpectedConditions.elementToBeClickable(txtPassword));
         element.sendKeys(Password);
     }
-    public void clickLogin(){
-        wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
-    }
     public void validatebtnLoginText(String loginText){
+        Reporter.log("going to Login Button will be clicked");
         Assert.assertEquals(btnLogin.getText(),loginText);
         Reporter.log("The Text on button login is:" + btnLogin.getText());
     }
-    public void clickForgotLoginInfoLink(){
-        wait.until(ExpectedConditions.elementToBeClickable(lnkForgotLoginInfo)).click();
+    public void clickLogin(){
+        Reporter.log("Login button will be clicked");
+        wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+        Reporter.log("Login button is clicked");
     }
     public void validateTextForgotLoginInfo(String textForgotLoginInfo){
+        Reporter.log("Going to Forgot Login Link");
         Assert.assertEquals(lnkForgotLoginInfo.getText(),textForgotLoginInfo);
         Reporter.log("The text of link is:"+lnkForgotLoginInfo.getText());
     }
-    public void clickRegisterLink(){
-        wait.until(ExpectedConditions.elementToBeClickable(lnkRegister)).click();
+
+    public void clickForgotLoginInfoLink(){
+        Reporter.log("ForgotLogInInfo will be clicked");
+        wait.until(ExpectedConditions.elementToBeClickable(lnkForgotLoginInfo)).click();
+        Reporter.log("ForgotLogInInfo is clicked");
+
     }
     public void validatetextRegisterLink(String textRegister){
+        Reporter.log("Going to Register Link");
         Assert.assertEquals(lnkRegister.getText(),textRegister);
         Reporter.log("The text of link is:"+lnkRegister.getText());
     }
+
+    public void clickRegisterLink(){
+        Reporter.log(" Register Link will be clicked");
+        wait.until(ExpectedConditions.elementToBeClickable(lnkRegister)).click();
+        Reporter.log(" Register Link is clicked");
+    }
+
 
 
 
