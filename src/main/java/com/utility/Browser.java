@@ -23,16 +23,17 @@ public class Browser {
     }
 
     public void launch() {
-        this.browsername=Constant.browsername;
+       // this.browsername=Constant.browsername;
 
         if (browsername.equalsIgnoreCase("Chrome")) {
-            System.setProperty("webdriver.driver.chrome", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
             this.driver = new ChromeDriver();
         } else if (browsername.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.driver.chrome", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
             this.driver = new FirefoxDriver();
         } else {
-
+            System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
+            this.driver = new ChromeDriver();
         }
     }
        /* else if (this.browsername.equalsIgnoreCase("chromeGrid"))
@@ -50,13 +51,18 @@ public class Browser {
         }*/
 
         public void maximize () {
+               try {
+                   this.driver.manage().window().maximize();
 
-                this.driver.manage().window().maximize();
-
+               }catch(Exception e) {
+                   this .launch();
+                   this.driver.manage().window().maximize();
+               }
         }
 
-        public void nevigateUrl (String url){
-            this.driver.get("url");
+        public void nevigateUrl (String url)
+        {
+            this.driver.get(url);
         }
         public void close () {
             this.driver.close();
