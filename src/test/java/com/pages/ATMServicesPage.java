@@ -41,6 +41,7 @@ public class ATMServicesPage {
         Reporter.log("ATM Services link is clicked",true);
     }
     public void clickWithDrawFunds(){
+       Reporter.log("LInk draw Funds will be clicked",true);
         wait.until(ExpectedConditions.elementToBeClickable(lnkWithDrawFunds));
     }
 
