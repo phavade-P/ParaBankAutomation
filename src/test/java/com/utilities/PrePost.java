@@ -13,6 +13,7 @@ public class PrePost {
     @BeforeSuite
     public void beforeSuite(){
         String browserName = System.getProperty("browsername");
+
         if (browserName != null) {
             Constant.browsername = browserName;
         }else{

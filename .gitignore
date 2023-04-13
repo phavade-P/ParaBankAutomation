@@ -1,1 +1,5 @@
 .idea/
+ParaBankAutomation.iml
+target/
+test-output/
+
