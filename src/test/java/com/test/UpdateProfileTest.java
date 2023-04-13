@@ -10,8 +10,8 @@ public class UpdateProfileTest extends PrePost {
     @Test
     public void validateAllLabels(){
         LoginPage loginPage = new LoginPage(browser.getDriver());
-        String user[] = {}
-        loginPage.loginParaBank();
+        //String user[] = {}
+        //loginPage.loginParaBank();
         UpdateProfilePage updateProfilePage = new UpdateProfilePage(browser.getDriver());
         TestData= FileReading.readUserProperties("UpdateProfile");
         updateProfilePage.clickLinkUpdateContactInfo();
