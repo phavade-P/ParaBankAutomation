@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 public class ATMServicesPage {
     WebDriver driver;
@@ -35,7 +36,9 @@ public class ATMServicesPage {
     }
 
     public void clickATMServicesLink(){
-      wait.until(ExpectedConditions.elementToBeClickable(lnkATMServices));
+      Reporter.log("ATM Services link will be clicked",true);
+        wait.until(ExpectedConditions.elementToBeClickable(lnkATMServices));
+        Reporter.log("ATM Services link is clicked",true);
     }
     public void clickWithDrawFunds(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWithDrawFunds));

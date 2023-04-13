@@ -37,7 +37,6 @@ public class PrePost {
     public void launch(){
 
         envrnmnt = FileReading.readEnvironment(Constant.env);
-
         browser.launch();
         browser.maximize();
         browser.nevigateUrl(envrnmnt.get("ApplicationUrl"));
