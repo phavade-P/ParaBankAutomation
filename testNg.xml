@@ -4,10 +4,11 @@
     <listeners>
         <listener class-name="com.utilities.Listeners"/>
     </listeners>
+
     <test name="regression">
-        <packages>
-            <package name="com.test"/>
-        </packages>
+        <classes>
+            <class name="com.test.LoginTestCase"/>
+        </classes>
 
     </test> <!-- Orange -->
 </suite> <!-- Default Suite -->
