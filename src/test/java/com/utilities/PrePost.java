@@ -11,13 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrePost {
-   public  Browser browser = new Browser();
-    public Map<String,String > envrnmnt = new HashMap<String, String>();
+
     public Map<String,String> TestData = new HashMap<String, String>();
 
     @BeforeSuite
     public void beforeSuite(){
         String browserName = System.getProperty("browsername");
+
         if (browserName != null) {
             Constant.browsername = browserName;
         }else{
@@ -36,6 +36,21 @@ public class PrePost {
     public void launch(){
 
         envrnmnt = FileReading.readEnvironment(Constant.env,Constant.filename);
+
+        browser.launch();
+        browser.maximize();
+        browser.nevigateUrl(envrnmnt.get("ApplicationUrl"));
+    }
+
+    @AfterMethod
+    public void close(){
+        browser.close();
+    }
+
+    @BeforeTest
+    public void launch(){
+
+        envrnmnt = FileReading.readEnvironment(Constant.env);
 
         browser.launch();
         browser.maximize();
