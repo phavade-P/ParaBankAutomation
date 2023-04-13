@@ -14,7 +14,9 @@ public class FileReading {
         Properties p = new Properties();
         Map<String, String> data = new HashMap<String, String>();
         try {
+
             File f = new File(Constant.pathTestResources + Constant.slash+ Constant.envirnoment+ Constant.slash+ Constant.env + Constant.slash+ Constant.env+ Constant.dot+ Constant.properties);
+
             FileInputStream fis = new FileInputStream(f);
             p.load(fis);
             for(Map.Entry e : p.entrySet()){
@@ -29,7 +31,9 @@ public class FileReading {
         Map<String,String> TestData = new HashMap<String, String>();
         Properties p = new Properties();
         try {
-            File f = new File(Constant.pathTestResources + Constant.slash + Constant.testdata+ Constant.slash+ filename+ Constant.dot+ Constant.properties);
+ 
+            File f = new File(Constant.pathTestResources + Constant.slash + Constant.testdata+ Constant.slash+ filename+ Constant.dot+ Constant.properties)
+          
             FileInputStream fis = new FileInputStream(f);
             p.load(fis);
 
