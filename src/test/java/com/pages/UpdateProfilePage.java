@@ -76,6 +76,9 @@ public class UpdateProfilePage {
     @FindBy(xpath="//input[@type='submit' and @value='Update Profile']")
     public WebElement btnUpdateProfile;
 
+    @FindBy(xpath="//div[@ng-if='showResult']/h1[contains(.,'Profile Updated')]")
+    public WebElement headerPrifileUpdated;
+
     public UpdateProfilePage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
@@ -83,7 +86,7 @@ public class UpdateProfilePage {
     }
 
     public void clickLinkUpdateContactInfo(){
-        Reporter.log("UpdateContact Info link eill be clicked",true);
+        Reporter.log("UpdateContact Info link will be clicked",true);
         wait.until(ExpectedConditions.visibilityOf(lnkUpdateContactInfo)).click();
         Reporter.log("UpdateContact Info is clicked",true);
     }
@@ -95,8 +98,10 @@ public class UpdateProfilePage {
 
 
     public void enterFirstName(String Firstname){
+        Reporter.log("Clicking on FirstName box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtFirstName));
         element.sendKeys(Firstname);
+        Reporter.log(" FirstName entered: "+ txtFirstName.getText(),true);
     }
 
     public void ValidateFirstName(String txtFirstname){
@@ -140,37 +145,62 @@ public class UpdateProfilePage {
 
     }
 
+
+
     public void enterLastName(String lastName){
+        Reporter.log("Clicking on LastName box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtLastName));
         element.sendKeys(lastName);
+        Reporter.log("Last name is entered : "+ txtLastName.getText(),true);
     }
 
     public void enterAddress(String address){
+        Reporter.log("Clicking on Address box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtAddress));
         element.sendKeys(address);
+        Reporter.log("Address is entered : "+ txtAddress.getText(),true);
     }
 
     public void enterCity(String city){
+        Reporter.log("Clicking on City box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtCity));
         element.sendKeys(city);
+        Reporter.log("City is entered : "+ txtCity.getText(),true);
     }
 
     public void enterState(String state){
+        Reporter.log("Clicking on State box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtState));
         element.sendKeys(state);
+        Reporter.log("state is entered : "+ txtState.getText(),true);
     }
 
     public void enterZipCode(String zipCode){
+        Reporter.log("Clicking on Zipcode box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtZipCode));
         element.sendKeys(zipCode);
+        Reporter.log("ZipCode is entered : "+ txtZipCode.getText(),true);
     }
     public void enterPhoneNumber(String phoneNumber){
+        Reporter.log("Clicking on phone box",true);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtPhoneNumber));
         element.sendKeys(phoneNumber);
+        Reporter.log("phone Number is entered : "+ txtPhoneNumber.getText(),true);
     }
 
     public void clickBtnUpdateProfile(){
+        Reporter.log("Clicking on Update Propfile button",true);
+
         wait.until(ExpectedConditions.visibilityOf(btnUpdateProfile)).click();
+        Reporter.log("Clicked on Update Propfile button",true);
+    }
+
+    public void velidateProfileUpdated(String ProfileUpdated){
+        Reporter.log("Going on Profile Updated header",true);
+        wait.until(ExpectedConditions.visibilityOf(headerPrifileUpdated));
+        Assert.assertEquals(headerPrifileUpdated.getText(),ProfileUpdated);
+        Reporter.log("Update is done successfully :"+ headerPrifileUpdated.getText(),true);
+
     }
 
 

@@ -14,7 +14,9 @@ public class Constant {
     public static final String properties = "properties";
     public static final String dot = ".";
     public static final String slash ="\\";
-    public static String filename = "userCredentials";
+    public static final String login = "login";
+    public static final String updateProfile = "UpdateProfile";
+    public static final String transferFunds = "TransferFund";
 
 
 }

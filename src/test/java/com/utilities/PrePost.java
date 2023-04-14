@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrePost {
-
+    public Browser browser= new Browser();
+    public Map<String,String> envrnmnt = new HashMap<String, String>();
+    public Map<String,String> users = new HashMap<String, String>();
     public Map<String,String> TestData = new HashMap<String, String>();
 
     @BeforeSuite
@@ -30,13 +32,12 @@ public class PrePost {
         }else{
             Constant.env = "QA";
         }
+        envrnmnt = FileReading.readEnvironmentData(Constant.env+Constant.slash,"QA");
+        users = FileReading.readEnvironmentData(Constant.env+Constant.slash,"userCredentials");
 
     }
     @BeforeTest
     public void launch(){
-
-        envrnmnt = FileReading.readEnvironment(Constant.env,Constant.filename);
-
         browser.launch();
         browser.maximize();
         browser.nevigateUrl(envrnmnt.get("ApplicationUrl"));
@@ -46,21 +47,6 @@ public class PrePost {
     public void close(){
         browser.close();
     }
-
-    @BeforeTest
-    public void launch(){
-
-        envrnmnt = FileReading.readEnvironment(Constant.env);
-        browser.launch();
-        browser.maximize();
-        browser.nevigateUrl(envrnmnt.get("ApplicationUrl"));
-    }
-
-    @AfterMethod
-    public void close(){
-        browser.close();
-    }
-
 
 
 }

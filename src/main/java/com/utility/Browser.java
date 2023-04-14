@@ -59,6 +59,7 @@ public class Browser {
         {
             this.driver.get(url);
         }
+
         public void close () {
             this.driver.close();
             this.driver.quit();
