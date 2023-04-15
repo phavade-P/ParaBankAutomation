@@ -18,23 +18,21 @@ public class Browser {
         return this.driver;
     }
 
-    public Browser(String browsername) {
-        this.browsername = browsername;
-    }
 
     public void launch() {
        // this.browsername=Constant.browsername;
 
-        if (browsername.equalsIgnoreCase("Chrome")) {
+        if (Constant.browsername.equalsIgnoreCase("Chrome")) {
             System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
             this.driver = new ChromeDriver();
-        } else if (browsername.equalsIgnoreCase("firefox")) {
+        } else if (Constant.browsername.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
             this.driver = new FirefoxDriver();
         } else {
             System.setProperty("webdriver.chrome.driver", Constant.pathmainResources + "\\chrome_exe\\chromedriver.exe");
             this.driver = new ChromeDriver();
         }
+        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
        /* else if (this.browsername.equalsIgnoreCase("chromeGrid"))
         {
@@ -47,7 +45,7 @@ public class Browser {
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
-            driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+
         }*/
 
         public void maximize () {

@@ -13,14 +13,7 @@ public class UpdateProfilePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(xpath="//input[@type='text']")
-    public WebElement txtUsername;
 
-    @FindBy(xpath="//input[@type='password']")
-    public WebElement txtPassword;
-
-    @FindBy(xpath="//input[@type='submit']")
-    public WebElement btnLogin;
 
     @FindBy(xpath="//div[@id='leftPanel']/p[contains(.,'Welcome')]")
     public WebElement lblWelcome;
@@ -30,6 +23,34 @@ public class UpdateProfilePage {
 
     @FindBy(xpath="//h1[@class='title' and contains(.,'Update Profile')]")
     public WebElement lblUpdateProfileHeader;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'First Name')]")
+    public WebElement lblFirstName;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'Last Name:')]")
+    public WebElement lblLastName;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'Address')]")
+    public WebElement lblAddress;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'City')]")
+    public WebElement lblCity;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'State')]")
+    public WebElement lblState;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'Zip Code')]")
+    public WebElement lblZipCode;
+
+    @FindBy(xpath="//table[@class='form2']//tr[contains(.,'Phone #')]")
+    public WebElement lblPhoneNumber;
+
+
+
+
+
+
+
 
     @FindBy(xpath="//input[@name='customer.firstName']")
     public WebElement txtFirstName;
@@ -62,7 +83,9 @@ public class UpdateProfilePage {
     }
 
     public void clickLinkUpdateContactInfo(){
+        Reporter.log("UpdateContact Info link eill be clicked",true);
         wait.until(ExpectedConditions.visibilityOf(lnkUpdateContactInfo)).click();
+        Reporter.log("UpdateContact Info is clicked",true);
     }
 
     public void getTextOfHeader(String HeaderTextUpdateProfile){
@@ -70,9 +93,51 @@ public class UpdateProfilePage {
         Reporter.log("The header of page: "+ lblUpdateProfileHeader.getText());
     }
 
+
     public void enterFirstName(String Firstname){
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(txtFirstName));
         element.sendKeys(Firstname);
+    }
+
+    public void ValidateFirstName(String txtFirstname){
+        Assert.assertEquals(lblFirstName.getText(),txtFirstname);
+        Reporter.log("The First Name box Label is:"+ lblFirstName.getText(),true);
+
+    }
+
+    public void ValidateLastName(String txtLastname){
+        Assert.assertEquals(lblLastName.getText(),txtLastname);
+        Reporter.log("The Last Name box Label is:"+ lblLastName.getText(),true);
+
+    }
+
+    public void ValidateAddress(String txtAddress){
+        Assert.assertEquals(lblAddress.getText(),txtAddress);
+        Reporter.log("The Address box Label is:"+ lblAddress.getText(),true);
+
+    }
+
+    public void ValidateCity(String txtCity){
+        Assert.assertEquals(lblCity.getText(),txtCity);
+        Reporter.log("The City box Label is:"+ lblCity.getText(),true);
+
+    }
+
+    public void ValidateState(String txtState){
+        Assert.assertEquals(lblState.getText(),txtState);
+        Reporter.log("The State box Label is:"+ lblState.getText(),true);
+
+    }
+
+    public void ValidateZipCode(String txtZipCode){
+        Assert.assertEquals(lblZipCode.getText(),txtZipCode);
+        Reporter.log("The ZipCode box Label is:"+ lblZipCode.getText(),true);
+
+    }
+    public void ValidatePhone(String txtPhone){
+        Assert.assertEquals(lblPhoneNumber.getText(),txtPhone);
+        Reporter.log("The Phone box Label is:"+ lblPhoneNumber.getText(),true);
+
     }
 
     public void enterLastName(String lastName){

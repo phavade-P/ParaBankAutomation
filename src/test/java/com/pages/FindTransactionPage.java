@@ -59,7 +59,7 @@ public class FindTransactionPage {
     public void validateWelcomeUserText(String WelComeText){
         wait.until(ExpectedConditions.visibilityOf(lblWelcome));
         Assert.assertEquals(lblWelcome.getText(),WelComeText);
-        Reporter.log("The String at welcome :" + lblWelcome.getText());
+        Reporter.log("The String at welcome :" + lblWelcome.getText(),true);
     }
 
     public void clickLinkFindTransactions(){
