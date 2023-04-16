@@ -25,9 +25,10 @@ public class LoginTestCase extends PrePost {
 
 
         @Test
-        public void checkUsernameFieldisEmpty () {
-            LoginPage loginPage1 = new LoginPage(browser.getDriver());
-            loginPage1.checkUserNameisEmpty();
+        public void login () {
+            LoginPage loginPage = new LoginPage(browser.getDriver());
+            String[] userdata=users.get("user1_credentials").split(";");
+            loginPage.loginParaBank(userdata[0],userdata[1]);
         }
 
     }

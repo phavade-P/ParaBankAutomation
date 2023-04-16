@@ -9,8 +9,10 @@ import org.testng.Reporter;
 public class Listeners implements ITestListener {
 
 
-    public void onTestStart(ITestResult result) {
-        Reporter.log("Starting test case"+ result.getTestName(),true);
+    public void onTestStart(ITestResult result)
+    {
+        Reporter.log("Starting test case"+ result.getName(),true);
+        Constant.currentclsname=result.getName();
     }
 
     public void onTestSuccess(ITestResult result) {

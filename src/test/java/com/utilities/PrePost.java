@@ -3,10 +3,16 @@ package com.utilities;
 import com.constants.Constant;
 import com.utility.Browser;
 import com.utility.FileReading;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +51,22 @@ public class PrePost {
 
     @AfterMethod
     public void close(){
+        this.takeScreenshot();
         browser.close();
+    }
+
+    public void takeScreenshot(){
+        TakesScreenshot screenshot = ((TakesScreenshot)browser.getDriver());
+        File srcfile=screenshot.getScreenshotAs(OutputType.FILE);
+        String date= new Date().toString();
+        date = date.replace(":","_").replace(" ","-");
+        File destFile = new File("D:\\shrunayu\\prajakta\\Parabank\\ParaBankAutomation\\src\\test\\resources\\Screenshot"+"SSC_"+Constant.currentclsname+date+".png");
+        try {
+            FileUtils.copyFile(srcfile,destFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

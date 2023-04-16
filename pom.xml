@@ -10,9 +10,11 @@
     <properties>
     <selenium>3.141.5</selenium>
     <testNg>7.5</testNg>
+        <commonio>2.11.0</commonio>
         <compiler-version>3.11.0</compiler-version>
         <java-version>1.8</java-version>
         <surefire-version>3.0.0-M5</surefire-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
     </properties>
@@ -80,6 +82,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commonio}</version>
         </dependency>
 
     </dependencies>
